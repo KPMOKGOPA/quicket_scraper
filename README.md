@@ -7,7 +7,11 @@ This tool scrapes event listings from [Quicket](https://www.quicket.co.za/events
 - Command-line options for headless browsing and page count
 
 ## Requirements
+clone the repository 
 
+```bash
+git clone https://github.com/KPMOKGOPA/quicket_scraper.git
+```
 Install dependencies:
 
 ```bash
