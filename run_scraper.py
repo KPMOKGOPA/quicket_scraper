@@ -1,4 +1,3 @@
-# run_scraper.py
 import argparse
 from scrapper import scrape_quicket
 
