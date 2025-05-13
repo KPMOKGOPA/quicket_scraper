@@ -29,7 +29,7 @@ python run_scraper.py
 
 By default, this scrapes **10 pages** in **headless mode**.
 
-#### 🔧 Optional arguments:
+#### Optional arguments:
 
 | Argument     | Type | Default | Description                             |
 | ------------ | ---- | ------- | --------------------------------------- |
