@@ -25,7 +25,7 @@ def accept_cookies(driver):
         accept_btn = wait.until(EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler")))
         accept_btn.click()
         logging.info("Accepted cookies.")
-        time.sleep(1)  # Brief delay to let it settle
+        time.sleep(1)  
     except TimeoutException:
         logging.warning("Cookie banner not found or already handled.")
 
@@ -34,7 +34,7 @@ def init_driver(headless=False):
     options.headless = headless
     return webdriver.Chrome(options=options)
 
-# BeautifulSoup 
+
 def parse_events(page_source):
     soup = BeautifulSoup(page_source, 'html.parser')
     event_list = []
@@ -69,7 +69,7 @@ def parse_events(page_source):
     return event_list
 
 
-#  CSV
+
 def save_to_csv(data, filename):
     with open(filename, mode="w", newline="", encoding="utf-8") as csvfile:
         fieldnames = ["Title", "Venue", "Date", "Time"]
