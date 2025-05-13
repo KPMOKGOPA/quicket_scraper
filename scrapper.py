@@ -13,14 +13,11 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-# Constants
 BASE_URL = "https://www.quicket.co.za/events/"
 
 OUTPUT_CSV = "quicket_events.csv"
 NUM_PAGES = 10
-DELAY_SECONDS = 2  # Rate-limiting delay
-
-
+DELAY_SECONDS = 2  
 
 def accept_cookies(driver):
     try:
@@ -32,19 +29,16 @@ def accept_cookies(driver):
     except TimeoutException:
         logging.warning("Cookie banner not found or already handled.")
 
-
-# Set up Selenium driver (headless)
 def init_driver(headless=False):
     options = Options()
     options.headless = headless
     return webdriver.Chrome(options=options)
 
-# Parse a page with BeautifulSoup and extract event data
+# BeautifulSoup 
 def parse_events(page_source):
     soup = BeautifulSoup(page_source, 'html.parser')
     event_list = []
 
-    # Find all event containers
     containers = soup.find_all('li', class_='l-event-item ng-star-inserted')
     
     for container in containers:
@@ -75,7 +69,7 @@ def parse_events(page_source):
     return event_list
 
 
-# Save to CSV
+#  CSV
 def save_to_csv(data, filename):
     with open(filename, mode="w", newline="", encoding="utf-8") as csvfile:
         fieldnames = ["Title", "Venue", "Date", "Time"]
